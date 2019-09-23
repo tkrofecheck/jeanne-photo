@@ -14,6 +14,14 @@ export default new Router({
       component: Home,
     },
     {
+      path: '/pricing',
+      name: 'pricing',
+      // route level code-splitting
+      // this generates a separate chunk (pricing.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "pricing" */ './views/Pricing.vue'),
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
