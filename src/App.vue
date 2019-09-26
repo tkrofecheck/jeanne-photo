@@ -9,6 +9,16 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'App',
+  async mounted() {
+    const { dispatch } = this.$store;
+    await dispatch('getPhotos');
+  },
+};
+</script>
+
 <style lang="scss">
 #app {
   font-family: 'Roboto', sans-serif;
