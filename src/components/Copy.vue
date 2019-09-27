@@ -1,17 +1,17 @@
 <template>
-  <div>
-    <p :class="paragrahClassNames"
-      v-for="(paragraph, index) in content"
+  <article :class="className">
+    <p v-for="(paragraph, index) in paragraphs"
       :key="index"
+      :class="paragrahClassNames"
       v-html="paragraph"></p>
-  </div>
+  </article>
 </template>
 
 <script>
 export default {
-  name: 'paragraph',
+  name: 'copy',
   props: {
-    content: Array,
+    paragraphs: Array,
     className: String,
   },
   computed: {

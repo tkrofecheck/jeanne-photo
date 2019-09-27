@@ -2,22 +2,20 @@
   <div class="about">
     <Welcome msg="Jeanne Sager" sub="photography"/>
     <h4>About</h4>
-    <article class="about__content">
-      <Paragraph :content="content" className="about__content" />
-    </article>
+    <Copy :paragraphs="content" className="about__content" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Welcome from '@/components/Welcome.vue';
-import Paragraph from '@/components/Paragraph.vue';
+import Copy from '@/components/Copy.vue';
 
 export default {
   name: 'about',
   components: {
     Welcome,
-    Paragraph,
+    Copy,
   },
   computed: {
     content() {

@@ -14,8 +14,8 @@ export default {
   name: 'App',
   mounted() {
     const { dispatch } = this.$store;
-    dispatch('getAboutContent');
-    dispatch('getAboutPhotos');
+    dispatch('getAboutData');
+    dispatch('getHomeData');
   },
 };
 </script>
