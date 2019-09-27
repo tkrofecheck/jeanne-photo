@@ -12,9 +12,10 @@
 <script>
 export default {
   name: 'App',
-  async mounted() {
+  mounted() {
     const { dispatch } = this.$store;
-    await dispatch('getPhotos');
+    dispatch('getAboutContent');
+    dispatch('getAboutPhotos');
   },
 };
 </script>

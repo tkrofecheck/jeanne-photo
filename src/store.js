@@ -4,35 +4,46 @@ import axios from 'axios';
 
 Vue.use(Vuex);
 
+const fetchData = url => new Promise((resolve) => {
+  axios
+    .get(url)
+    .then(response => resolve(response.data));
+});
+
 export default new Vuex.Store({
   state: {
-    FETCHING_PHOTOS: false,
-    photos: {},
+    ABOUT_CONTENT: {},
+    ABOUT_PHOTOS: {},
   },
   mutations: {
-    isFetchingPhotos(state, payload) {
-      state.FETCHING_PHOTOS = payload;
+    SET_ABOUT_CONTENT(state, payload) {
+      state.ABOUT_CONTENT = payload;
     },
-    setPhotos(state, payload) {
-      state.photos = payload;
-      return Promise.resolve();
+    SET_ABOUT_PHOTOS(state, payload) {
+      state.ABOUT_PHOTOS = payload;
+    },
+  },
+  getters: {
+    ABOUT_CONTENT(state) {
+      return state.ABOUT_CONTENT.about.content;
+    },
+    ABOUT_PHOTOS(state) {
+      return state.ABOUT_PHOTOS.about.photos;
     },
   },
   actions: {
-    fetchData({ commit }, url) {
-      return new Promise((resolve) => {
-        commit('isFetchingPhotos', true);
-        axios
-          .get(url)
-          .then(response => resolve(response));
-      });
-    },
-    async getPhotos({ commit, dispatch }) {
+    async getAboutPhotos({ commit }) {
       try {
-        await commit('setPhotos', await dispatch('fetchData', './data/photos.json'));
-        commit('isFetchingPhotos', false);
+        commit('SET_ABOUT_PHOTOS', await fetchData('/data/about-photos.json'));
       } catch (e) {
-        console.error('error with setPhotos on fetch', e);
+        console.error('error with SET_ABOUT_PHOTOS on axios.get', e);
+      }
+    },
+    async getAboutContent({ commit }) {
+      try {
+        commit('SET_ABOUT_CONTENT', await fetchData('/data/about-content.json'));
+      } catch (e) {
+        console.error('error with SET_ABOUT_CONTENT on axios.get', e);
       }
     },
   },
