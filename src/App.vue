@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link>
-      <router-link to="/pricing">Pricing</router-link>
+      <router-link to="/investment">Investment</router-link>
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
@@ -16,6 +16,7 @@ export default {
     const { dispatch } = this.$store;
     dispatch('getAboutData');
     dispatch('getHomeData');
+    dispatch('getInvestmentData');
   },
 };
 </script>

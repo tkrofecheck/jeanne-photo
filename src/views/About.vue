@@ -8,14 +8,14 @@
 
 <script>
 // @ is an alias to /src
-import Welcome from '@/components/Welcome.vue';
 import Copy from '@/components/Copy.vue';
+import Welcome from '@/components/Welcome.vue';
 
 export default {
   name: 'about',
   components: {
-    Welcome,
     Copy,
+    Welcome,
   },
   computed: {
     content() {
