@@ -3,6 +3,10 @@
     "content": [
       "Every Jeanne Sager Photography session is customized to your needs, whether I come to you or you travel to my studio in Callicoon Center, New York. In addition to bringing my 20+ years experience in photography, I offer wardrobe and location consulting, as well as packages that can be built around your budget."
     ],
+    "footer": [
+      "Don't see your photography needs listed or still have questions?",
+      "Contact Jeanne Sager Photography now, so we can start building a photography session package that works for you!"
+    ],
     "sections": [
       {
         "name": "Weddings and Engagement Photography",
@@ -76,6 +80,77 @@
               "Discounts available for smash cakes from Divine Sweets by K&H!",
               "10 high resolution downloadable digital images (additional digitals and prints available for purchase)",
               "Investment: $400 with tax included"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Maternity and Newborn Photography Sessions",
+        "photo": "",
+        "packages": [
+          {
+            "name": "Package A",
+            "photo": "",
+            "copy": "",
+            "list": [
+              "Two-hour session at a location of your choice (ask me for suggested spots!)",
+              "20 high resolution downloadable digital images (additional digitals and prints available for purchase)",
+              "Wardrobe consultation",
+              "Variety of poses, including couple together, mom alone, etc." ,
+              "Investment: $450 sitting fee, tax included",
+            ]
+          },
+          {
+            "name": "Package B",
+            "photo": "",
+            "copy": "Cake smashes, sitter sessions and more are available at my studio in Callicoon Center.",
+            "list": [
+              "One-hour session at a location of your choice (ask me for suggested spots!)",
+              "Wardrobe consultation",
+              "Gallery of 20 high resolution digital images to choose from. Buy only those you want!",
+              "Investment: $300 sitting fee tax included (plus cost of individual digitals)"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Senior portrait sessions",
+        "photo": "",
+        "packages": [
+          {
+            "name": "Package A",
+            "photo": "",
+            "copy": "",
+            "list": [
+              "Two-hour session at a location of your choice (ask me for suggested spots!)",
+              "40+ high resolution downloadable digital images",
+              "Wardrobe consultation",
+              "Variety of poses, including senior alone, senior in different outfits, senior with pet, senior with special mementos, senior with parents, siblings, etc.",  
+              "Investment: $600 with tax included"
+            ]
+          },
+          {
+            "name": "Package B",
+            "photo": "",
+            "copy": "",
+            "list": [
+              "One-to-two-hour session at a location of your choice (ask me for suggested spots!)",
+              "20 high resolution downloadable digital images (additional digitals and prints available for purchase)",
+              "Wardrobe consultation",
+              "Variety of poses, including senior alone, senior in different outfits, senior with pet, senior with special mementos, senior with parents, siblings, etc.", 
+              "Investment: $450 sitting fee, tax included"
+            ]
+          },
+          {
+            "name": "Package C",
+            "photo": "",
+            "copy": "",
+            "list": [
+              "One-hour session at a location of your choice (ask me for suggested spots!)",
+              "Wardrobe consultation",
+              "Variety of poses, including senior alone, senior in different outfits, senior with pet, senior with special mementos, senior with parents, siblings, etc.",
+              "Gallery of 20 high resolution digital images to choose from. Buy only those you want!",
+              "Investment: $300 sitting fee, tax included (plus cost of individual digitals)"
             ]
           }
         ]
