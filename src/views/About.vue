@@ -1,7 +1,6 @@
 <template>
   <div class="about">
     <Welcome msg="Jeanne Sager" sub="photography"/>
-    <h4>About</h4>
     <section class="about__section">
       <Photos :photos="photos" className="about__content__img" />
       <Copy :paragraphs="content" className="about__content" />
@@ -37,14 +36,14 @@ export default {
   .about__section {
     display: flex;
     flex-direction: column;
-    padding: 0 15px;
+    margin: 10px 0;
     @media screen and (min-width: 415px) {
       flex-direction: row;
     }
   }
 
   .about__content {
-    padding: 10px;
+    padding: 0 15px;
     text-align: center;
   }
 
