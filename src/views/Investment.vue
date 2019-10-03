@@ -21,6 +21,9 @@ export default {
     content() {
       return this.$store.getters.INVESTMENT_CONTENT;
     },
+    footer() {
+      return this.$store.getters.INVESTMENT_FOOTER;
+    },
     sections() {
       return this.$store.getters.INVESTMENT_SECTIONS;
     },

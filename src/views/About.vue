@@ -2,10 +2,10 @@
   <div class="about">
     <Welcome msg="Jeanne Sager" sub="photography"/>
     <h4>About</h4>
-    <div>
-      <Photos :photos="photos" />
+    <section class="about__section">
+      <Photos :photos="photos" className="about__content__img" />
       <Copy :paragraphs="content" className="about__content" />
-    </div>
+    </section>
   </div>
 </template>
 
@@ -34,6 +34,15 @@ export default {
 </script>
 
 <style lang="scss">
+  .about__section {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+    @media screen and (min-width: 415px) {
+      flex-direction: row;
+    }
+  }
+
   .about__content {
     padding: 10px;
     text-align: center;

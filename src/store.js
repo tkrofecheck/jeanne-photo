@@ -43,26 +43,29 @@ export default new Vuex.Store({
     INVESTMENT_CONTENT(state) {
       return state.INVESTMENT.investment.content;
     },
+    INVESTMENT_FOOTER(state) {
+      return state.INVESTMENT.investment.footer;
+    },
     INVESTMENT_SECTIONS(state) {
       return state.INVESTMENT.investment.sections;
     },
   },
   actions: {
-    async getAboutData({ commit }) {
+    async fetchAboutData({ commit }) {
       try {
         commit('SET_ABOUT', await fetchData('/data/about.json'));
       } catch (e) {
         console.error('error with SET_ABOUT on axios.get', e);
       }
     },
-    async getHomeData({ commit }) {
+    async fetchHomeData({ commit }) {
       try {
         commit('SET_HOME', await fetchData('/data/home.json'));
       } catch (e) {
         console.error('error with SET_HOME on axios.get', e);
       }
     },
-    async getInvestmentData({ commit }) {
+    async fetchInvestmentData({ commit }) {
       try {
         commit('SET_INVESTMENT', await fetchData('/data/investment.json'));
       } catch (e) {
