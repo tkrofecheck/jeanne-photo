@@ -4,13 +4,17 @@
 
 <script>
 export default {
-  name: 'scrollGradient',
+  name: 'gradient',
   computed: {
     gradient() {
+      // add 35 to allow content to fade before reaching nav
       return {
-        height: `${document.getElementById('nav').offsetHeight + 35}px`,
+        height: `${this.navHeight + 35}px`,
       };
     },
+  },
+  props: {
+    navHeight: Number,
   },
 };
 </script>

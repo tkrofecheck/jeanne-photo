@@ -2,7 +2,6 @@
   <div class="about">
     <Welcome msg="Jeanne Sager" sub="photography"/>
     <section class="about__section">
-      <Gradient />
       <div class="section__bg section__bg--hightrans"></div>
       <div class="about__section__container">
         <div v-for="(photo, index) in photos"
@@ -18,7 +17,6 @@
 <script>
 // @ is an alias to /src
 import Copy from '@/components/Copy.vue';
-import Gradient from '@/components/Gradient.vue';
 import Photo from '@/components/Photo.vue';
 import Welcome from '@/components/Welcome.vue';
 
@@ -26,7 +24,6 @@ export default {
   name: 'about',
   components: {
     Copy,
-    Gradient,
     Photo,
     Welcome,
   },

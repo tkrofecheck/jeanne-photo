@@ -7,18 +7,32 @@
       <router-link to="/investment">Investment</router-link>
       <router-link to="/about">About</router-link>
     </div>
+    <Gradient :navHeight="navHeight" />
     <router-view/>
   </div>
 </template>
 
 <script>
+import Gradient from '@/components/Gradient.vue';
+
 export default {
   name: 'App',
+  components: {
+    Gradient,
+  },
+  data() {
+    return {
+      navHeight: 0,
+    };
+  },
   mounted() {
     const { dispatch } = this.$store;
     dispatch('fetchAboutData');
     dispatch('fetchHomeData');
     dispatch('fetchInvestmentData');
+  },
+  updated() {
+    this.navHeight = this.$refs.nav.offsetHeight;
   },
 };
 </script>
