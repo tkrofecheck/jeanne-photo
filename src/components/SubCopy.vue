@@ -8,8 +8,9 @@
 
 <script>
 export default {
-  name: 'footer',
+  name: 'subcopy',
   props: {
+    className: String,
     paragraphs: Array,
   },
 };

@@ -4,21 +4,21 @@
     <h4>Photography Investment and Package Information</h4>
     <Copy :paragraphs="content" className="investment__content" />
     <!-- Sections here -->
-    <Footer :paragraphs="footer" className="investment__footer" />
+    <SubCopy :paragraphs="footer" className="investment__footer" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Copy from '@/components/Copy.vue';
-import Footer from '@/components/Footer.vue';
+import SubCopy from '@/components/SubCopy.vue';
 import Welcome from '@/components/Welcome.vue';
 
 export default {
   name: 'investment',
   components: {
     Copy,
-    Footer,
+    SubCopy,
     Welcome,
   },
   computed: {
