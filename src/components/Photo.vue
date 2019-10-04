@@ -1,6 +1,6 @@
 <template>
-  <div :class="className">
-    <img :src="require(`../assets/photos/${photo}`)" v-bind:alt="photo" />
+  <div v-lazy-container="{ selector: 'img' }" :class="className">
+    <img :data-src="require(`../assets/photos/${photo}`)" v-bind:alt="photo" />
   </div>
 </template>
 

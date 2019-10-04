@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="bg"></div>
-    <div id="nav">
-      <div class="nav__bg"></div>
+    <div id="nav" ref="nav">
+      <div class="nav__bg section__bg--lowtrans"></div>
       <router-link to="/">Home</router-link>
       <router-link to="/investment">Investment</router-link>
       <router-link to="/about">About</router-link>
@@ -51,6 +51,7 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  line-height: 1.5;
 }
 #nav {
   font-family: 'Poiret One', cursive;
@@ -60,6 +61,7 @@ html, body {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 1000;
   a {
     font-weight: bold;
     color: blueviolet;
@@ -71,14 +73,27 @@ html, body {
   }
 }
 
-.nav__bg {
-  background-attachment: fixed;
-  background-color: lavender;
+.nav__bg, .section__bg {
   display: block;
   height: 100%;
   width: 100%;
   position: absolute;
   z-index: -1;
+}
+
+.section__bg {
+  background-color: lavender;
+}
+
+.section__bg--hightrans {
+  opacity: 0.5;
+}
+
+.section__bg--lowtrans {
   opacity: 0.7;
+}
+
+.section__bg--notrans {
+  opacity: 1;
 }
 </style>

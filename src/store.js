@@ -13,12 +13,16 @@ const fetchData = url => new Promise((resolve) => {
 export default new Vuex.Store({
   state: {
     ABOUT: {},
+    ABOUT_SCROLLTOP: 0,
     HOME: {},
     INVESTMENT: {},
   },
   mutations: {
     SET_ABOUT(state, payload) {
       state.ABOUT = payload;
+    },
+    SET_ABOUT_SCROLLTOP(state, payload) {
+      state.ABOUT_SCROLLTOP = payload;
     },
     SET_HOME(state, payload) {
       state.HOME = payload;
@@ -30,6 +34,9 @@ export default new Vuex.Store({
   getters: {
     ABOUT(state) {
       return state.ABOUT.about;
+    },
+    ABOUT_SCROLLTOP(state) {
+      return state.ABOUT_SCROLLTOP;
     },
     HOME(state) {
       return state.HOME.home;
