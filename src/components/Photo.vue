@@ -9,7 +9,7 @@ export default {
   name: 'photo',
   props: {
     className: String,
-    photo: Array,
+    photo: String,
   },
   data() {
     return {

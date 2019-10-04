@@ -26,10 +26,10 @@ export default {
   },
   computed: {
     content() {
-      return this.$store.getters.ABOUT_CONTENT;
+      return this.$store.getters.ABOUT.content;
     },
     photos() {
-      return this.$store.getters.ABOUT_PHOTOS;
+      return this.$store.getters.ABOUT.photos;
     },
   },
 };

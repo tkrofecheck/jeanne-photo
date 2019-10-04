@@ -28,26 +28,14 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    ABOUT_CONTENT(state) {
-      return state.ABOUT.about.content;
+    ABOUT(state) {
+      return state.ABOUT.about;
     },
-    ABOUT_PHOTOS(state) {
-      return state.ABOUT.about.photos;
+    HOME(state) {
+      return state.HOME.home;
     },
-    HOME_CONTENT(state) {
-      return state.HOME.home.content;
-    },
-    HOME_PHOTOS(state) {
-      return state.HOME.home.photos;
-    },
-    INVESTMENT_CONTENT(state) {
-      return state.INVESTMENT.investment.content;
-    },
-    INVESTMENT_FOOTER(state) {
-      return state.INVESTMENT.investment.footer;
-    },
-    INVESTMENT_SECTIONS(state) {
-      return state.INVESTMENT.investment.sections;
+    INVESTMENT(state) {
+      return state.INVESTMENT.investment;
     },
   },
   actions: {
