@@ -2,6 +2,7 @@
   <div id="app">
     <div id="bg"></div>
     <div id="nav">
+      <div class="nav__bg"></div>
       <router-link to="/">Home</router-link>
       <router-link to="/investment">Investment</router-link>
       <router-link to="/about">About</router-link>
@@ -33,14 +34,15 @@ html, body {
   height: 100%;
   background-attachment: fixed;
   background-size: contain;
-  background-image: url(~@/assets/hiclipart.com-id_idkan_mobile.png);
+  background-image: url(~@/assets/backgrounds/hiclipart.com-id_idkan_mobile.png);
   opacity: .5;
   z-index: -1;
-  @media screen and (min-width: 415px) {
-    background-image: url(~@/assets/hiclipart.com-id_idkan_tablet.png);
+
+  @include respond-above(xs) {
+    background-image: url(~@/assets/backgrounds/hiclipart.com-id_idkan_tablet.png);
   }
-  @media screen and (min-width: 769px) {
-    background-image: url(~@/assets/hiclipart.com-id_idkan_desktop.png);
+  @include respond-above(sm) {
+    background-image: url(~@/assets/backgrounds/hiclipart.com-id_idkan_desktop.png);
   }
 }
 #app {
@@ -55,6 +57,9 @@ html, body {
   display: flex;
   box-sizing: border-box;
   justify-content: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   a {
     font-weight: bold;
     color: blueviolet;
@@ -64,5 +69,16 @@ html, body {
       color: violet;
     }
   }
+}
+
+.nav__bg {
+  background-attachment: fixed;
+  background-color: lavender;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.7;
 }
 </style>

@@ -2,7 +2,10 @@
   <div class="about">
     <Welcome msg="Jeanne Sager" sub="photography"/>
     <section class="about__section">
-      <Photos :photos="photos" className="about__content__img" />
+      <div v-for="(photo, index) in photos"
+        v-bind:key="index" class="about__content__images">
+        <Photo v-bind:photo="photo" className="about__content__img" />
+      </div>
       <Copy :paragraphs="content" className="about__content" />
     </section>
   </div>
@@ -11,14 +14,14 @@
 <script>
 // @ is an alias to /src
 import Copy from '@/components/Copy.vue';
-import Photos from '@/components/Photos.vue';
+import Photo from '@/components/Photo.vue';
 import Welcome from '@/components/Welcome.vue';
 
 export default {
   name: 'about',
   components: {
     Copy,
-    Photos,
+    Photo,
     Welcome,
   },
   computed: {
@@ -37,7 +40,7 @@ export default {
     display: flex;
     flex-direction: column;
     margin: 10px 0;
-    @media screen and (min-width: 415px) {
+    @include respond-above(xs) {
       flex-direction: row;
     }
   }
@@ -45,9 +48,26 @@ export default {
   .about__content {
     padding: 0 15px;
     text-align: center;
+
+    @include respond-above(xs) {
+      width: 50%;
+      text-align: left;
+    }
+  }
+
+  .about__content__images {
+    @include respond-above(xs) {
+      width: 50%;
+    }
+  }
+
+  .about__content__img {
+    display: block;
   }
 
   .about__content__p {
     margin-bottom: 10px;
+    color: crimson;
+    text-shadow: 1px 1px cadetblue;
   }
 </style>
