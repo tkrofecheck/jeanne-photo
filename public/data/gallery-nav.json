@@ -1,0 +1,16 @@
+{
+  "galleryNav": [
+    {
+      "title": "Senior Pics",
+      "className": "seniorpics",
+      "url": "../galleries/seniorpics.htm",
+      "data": "../data/seniorpics.json"
+    },
+    {
+      "title": "Weddings",
+      "className": "weddings",
+      "url": "../galleries/weddings.htm",
+      "data": "../data/weddings.json"
+    }
+  ]
+}

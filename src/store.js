@@ -14,6 +14,13 @@ export default new Vuex.Store({
   state: {
     ABOUT: {},
     ABOUT_SCROLLTOP: 0,
+    GALLERY_NAV: {},
+    GALLERY: {
+      title: 'Weddings',
+      className: 'weddings',
+      url: '../galleries/weddings.htm',
+      data: '../data/weddings.json',
+    },
     HOME: {},
     INVESTMENT: {},
   },
@@ -23,6 +30,12 @@ export default new Vuex.Store({
     },
     SET_ABOUT_SCROLLTOP(state, payload) {
       state.ABOUT_SCROLLTOP = payload;
+    },
+    SET_GALLERY_NAV(state, payload) {
+      state.GALLERY_NAV = payload;
+    },
+    SET_GALLERY(state, payload) {
+      state.GALLERY = payload;
     },
     SET_HOME(state, payload) {
       state.HOME = payload;
@@ -38,6 +51,12 @@ export default new Vuex.Store({
     ABOUT_SCROLLTOP(state) {
       return state.ABOUT_SCROLLTOP;
     },
+    GALLERY_NAV(state) {
+      return state.GALLERY_NAV.galleryNav;
+    },
+    GALLERY(state) {
+      return state.GALLERY;
+    },
     HOME(state) {
       return state.HOME.home;
     },
@@ -51,6 +70,13 @@ export default new Vuex.Store({
         commit('SET_ABOUT', await fetchData('/data/about.json'));
       } catch (e) {
         console.error('error with SET_ABOUT on axios.get', e);
+      }
+    },
+    async fetchGalleryNavData({ commit }) {
+      try {
+        commit('SET_GALLERY_NAV', await fetchData('/data/gallery-nav.json'));
+      } catch (e) {
+        console.error('error with SET_GALLERY_NAV on axios.get', e);
       }
     },
     async fetchHomeData({ commit }) {

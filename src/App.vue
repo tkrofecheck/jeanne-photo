@@ -5,6 +5,7 @@
       <div class="nav__bg section__bg--lowtrans"></div>
       <router-link to="/">Home</router-link>
       <router-link to="/investment">Investment</router-link>
+      <router-link to="/galleries">Galleries</router-link>
       <router-link to="/about">About</router-link>
     </div>
     <Gradient :navHeight="navHeight" />
@@ -28,6 +29,7 @@ export default {
   mounted() {
     const { dispatch } = this.$store;
     dispatch('fetchAboutData');
+    dispatch('fetchGalleryNavData');
     dispatch('fetchHomeData');
     dispatch('fetchInvestmentData');
   },

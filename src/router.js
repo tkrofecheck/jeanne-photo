@@ -22,6 +22,14 @@ export default new Router({
       component: () => import(/* webpackChunkName: "investment" */ './views/Investment.vue'),
     },
     {
+      path: '/galleries',
+      name: 'galleries',
+      // route level code-splitting
+      // this generates a separate chunk (investment.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "investment" */ './views/Galleries.vue'),
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
