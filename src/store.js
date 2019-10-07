@@ -14,6 +14,7 @@ export default new Vuex.Store({
   state: {
     ABOUT: {},
     ABOUT_SCROLLTOP: 0,
+    FETCHED_HTML: '',
     GALLERY_NAV: {},
     GALLERY: {
       title: 'Weddings',
@@ -30,6 +31,9 @@ export default new Vuex.Store({
     },
     SET_ABOUT_SCROLLTOP(state, payload) {
       state.ABOUT_SCROLLTOP = payload;
+    },
+    SET_FETCHED_HTML(state, payload) {
+      state.FETCHED_HTML = payload;
     },
     SET_GALLERY_NAV(state, payload) {
       state.GALLERY_NAV = payload;
@@ -50,6 +54,9 @@ export default new Vuex.Store({
     },
     ABOUT_SCROLLTOP(state) {
       return state.ABOUT_SCROLLTOP;
+    },
+    FETCHED_HTML(state) {
+      return state.FETCHED_HTML;
     },
     GALLERY_NAV(state) {
       return state.GALLERY_NAV.galleryNav;
@@ -91,6 +98,13 @@ export default new Vuex.Store({
         commit('SET_INVESTMENT', await fetchData('/data/investment.json'));
       } catch (e) {
         console.error('error with SET_INVESTMENT on axios.get', e);
+      }
+    },
+    async fetchHTML({ commit }, url) {
+      try {
+        commit('SET_FETCHED_HTML', await fetchData(url));
+      } catch (e) {
+        console.error('error with SET_FETCHED_HTML on axios.get', e);
       }
     },
   },
