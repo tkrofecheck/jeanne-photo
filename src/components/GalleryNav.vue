@@ -3,7 +3,7 @@
     <span v-for="(link, index) in links"
       v-bind:key="index"
       v-bind:link="link">
-      <button v-on:click="loadIframe(link)">
+      <button v-on:click="loadGallery(link)">
         {{ link.title }}
       </button>
     </span>
@@ -17,10 +17,16 @@ export default {
     links: Array,
   },
   methods: {
-    loadIframe(link) {
-      console.log('load iframe', link);
-      this.$store.commit('SET_GALLERY', link);
+    getGalleryContent() {
+      this.$store.dispatch('fetchHTML', this.$store.getters.GALLERY.url);
     },
+    async loadGallery(link) {
+      await this.$store.commit('SET_GALLERY', link);
+      this.getGalleryContent();
+    },
+  },
+  mounted() {
+    this.getGalleryContent();
   },
 };
 </script>

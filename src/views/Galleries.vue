@@ -2,20 +2,21 @@
   <div class="galleries" :style="style">
     <GalleryNav ref="GalleryNav"
       :links="this.$store.getters.GALLERY_NAV" />
-    <GalleryIframe
-      ref="GalleryIframe"
-      :gallery="this.$store.getters.GALLERY" />
+    <Gallery
+      ref="Gallery"
+      :gallery="this.$store.getters.GALLERY"
+      :html="this.$store.getters.FETCHED_HTML" />
   </div>
 </template>
 
 <script>
-import GalleryIframe from '@/components/GalleryIframe.vue';
+import Gallery from '@/components/Gallery.vue';
 import GalleryNav from '@/components/GalleryNav.vue';
 
 export default {
   name: 'galleries',
   components: {
-    GalleryIframe,
+    Gallery,
     GalleryNav,
   },
   computed: {
