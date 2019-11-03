@@ -1,11 +1,8 @@
 <template>
-  <div class="galleries" :style="style">
-    <GalleryNav ref="GalleryNav"
-      :links="this.$store.getters.GALLERY_NAV" />
-    <Gallery
-      ref="Gallery"
-      :gallery="this.$store.getters.GALLERY"
-      :html="this.$store.getters.FETCHED_HTML" />
+  <div class="galleries">
+    <Welcome msg="Jeanne Sager" sub="photography" />
+    <GalleryNav ref="GalleryNav" stateName="GALLERY_NAV"/>
+    <Gallery ref="Gallery" />
   </div>
 </template>
 
@@ -18,16 +15,6 @@ export default {
   components: {
     Gallery,
     GalleryNav,
-  },
-  computed: {
-    className() {
-      return '';
-    },
-    style() {
-      return {
-        top: `${document.getElementById('nav').offsetHeight}px`,
-      };
-    },
   },
 };
 </script>

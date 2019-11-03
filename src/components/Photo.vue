@@ -1,6 +1,6 @@
 <template>
-  <div v-lazy-container="{ selector: 'img' }" :class="className">
-    <img :data-src="require(`../assets/photos/${photo}`)" v-bind:alt="photo" />
+  <div v-lazy-container="{ selector: 'img' }">
+    <img :data-src="data.src" :alt="data.alt" />
   </div>
 </template>
 
@@ -8,13 +8,7 @@
 export default {
   name: 'photo',
   props: {
-    className: String,
-    photo: String,
-  },
-  data() {
-    return {
-      publicPath: process.env.BASE_URL,
-    };
+    data: Object,
   },
 };
 </script>

@@ -1,31 +1,22 @@
 <template>
-  <div>
-    <div class="section__bg section__bg--hightrans"></div>
-    <!-- <iframe :class="classNames"
-      :src="gallery.url" /> -->
-    <div v-html="html"></div>
+  <div class="gallery">
+    <ProcessedHtml className="gallery__content" stateName="GALLERY" />
   </div>
 </template>
 
 <script>
+// @ is an alias to /src
+import Welcome from "@/components/Welcome.vue";
+import ProcessedHtml from "@/components/ProcessedHtml.vue";
+
 export default {
-  name: 'gallery',
-  computed: {
-    classNames() {
-      return `gallery__container ${this.gallery.className}`;
-    },
-  },
-  props: {
-    gallery: Object,
-    html: String,
+  name: "gallery",
+  components: {
+    ProcessedHtml,
+    Welcome
   },
 };
 </script>
 
 <style lang="scss">
-.galleries__iframe {
-  border: 0;
-  width: 100%;
-  height: 100%;
-}
 </style>

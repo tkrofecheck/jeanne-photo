@@ -26,12 +26,11 @@ export default {
       navHeight: 0,
     };
   },
-  mounted() {
-    const { dispatch } = this.$store;
-    dispatch('fetchAboutData');
-    dispatch('fetchGalleryNavData');
-    dispatch('fetchHomeData');
-    dispatch('fetchInvestmentData');
+  created() {
+    this.$store.dispatch('fetchHome');
+    this.$store.dispatch('fetchAbout');
+    this.$store.dispatch('fetchInvestment');
+    this.$store.dispatch('fetchGalleryNav');
   },
   updated() {
     this.navHeight = this.$refs.nav.offsetHeight;

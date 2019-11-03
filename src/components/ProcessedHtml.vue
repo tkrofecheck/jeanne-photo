@@ -8,14 +8,14 @@
 import Vue from "vue";
 import { mapState } from "vuex";
 import forEach from 'lodash-es/forEach';
-import GalleryNavLink from "@/components/GalleryNavLink.vue";
+import Photo from "@/components/Photo.vue";
 
-Vue.component("gallery-nav-link", GalleryNavLink);
+Vue.component("photo", Photo);
 
 export default {
-  name: "GalleryNav",
+  name: "ProcessedHtml",
   components: {
-    GalleryNavLink
+    Photo
   },
   computed: mapState({
     html(state) {
@@ -24,20 +24,20 @@ export default {
     processedHtml(state) {
       const div = document.createElement("div");
       let newHtml = this.html;
-      let links = [];
+      let images = [];
 
       div.innerHTML = newHtml;
-      links = div.querySelectorAll("a");
+      images = div.querySelectorAll("img");
 
-      forEach(links, (link, index) => {
-        const id = `galLink${index}`;
+      forEach(images, (image, index) => {
+        const id = `img${index}`;
 
-        newHtml = this.setupGalleryLink(link, id, div.innerHTML);
+        newHtml = this.loadPhoto(image, id, div.innerHTML);
       });
 
       return {
-        name: 'ProcessedHtml',
-        template: `<div class="gallery_nav processed__html">${newHtml}</div>`,
+        name: 'ProcessedHtmlComponent',
+        template: `<div class="${this.className} processed__html">${newHtml}</div>`,
         props: this.componentProps,
       };
     }
@@ -57,10 +57,10 @@ export default {
     };
   },
   methods: {
-    setupGalleryLink(link, id, html) {
+    loadPhoto(photo, id, html) {
       const elementProps = {
-        href: link.href || '',
-        name: link.name || ''
+        src: photo.src || '',
+        alt: photo.alt || 'photo'
       };
       let adjustedHtml = html;
 
@@ -70,8 +70,8 @@ export default {
       };
 
       adjustedHtml = html.replace(
-        link.outerHTML,
-        elementProps.href ? `<gallery-nav-link :data="${id}"></gallery-nav-link>` : ''
+        photo.outerHTML,
+        elementProps.src ? `<photo :data="${id}"></photo>` : ''
       );
 
       return adjustedHtml;

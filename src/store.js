@@ -12,18 +12,19 @@ const fetchData = url => new Promise((resolve) => {
 
 export default new Vuex.Store({
   state: {
-    ABOUT: {},
+    ABOUT: '',
     ABOUT_SCROLLTOP: 0,
     FETCHED_HTML: '',
-    GALLERY_NAV: {},
+    GALLERY_NAV: '',
     GALLERY: {
       title: 'Weddings',
       className: 'weddings',
       url: '../galleries/weddings.htm',
       data: '../data/weddings.json',
     },
-    HOME: {},
-    INVESTMENT: {},
+    GALLERY_URL: '',
+    HOME: '',
+    INVESTMENT: '',
   },
   mutations: {
     SET_ABOUT(state, payload) {
@@ -32,14 +33,14 @@ export default new Vuex.Store({
     SET_ABOUT_SCROLLTOP(state, payload) {
       state.ABOUT_SCROLLTOP = payload;
     },
-    SET_FETCHED_HTML(state, payload) {
-      state.FETCHED_HTML = payload;
+    SET_GALLERY_HTML(state, payload) {
+      state.GALLERY_HTML = payload;
     },
     SET_GALLERY_NAV(state, payload) {
       state.GALLERY_NAV = payload;
     },
-    SET_GALLERY(state, payload) {
-      state.GALLERY = payload;
+    SET_GALLERY_URL(state, payload) {
+      state.GALLERY_URL = payload;
     },
     SET_HOME(state, payload) {
       state.HOME = payload;
@@ -49,62 +50,44 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    ABOUT(state) {
-      return state.ABOUT.about;
-    },
     ABOUT_SCROLLTOP(state) {
       return state.ABOUT_SCROLLTOP;
     },
-    FETCHED_HTML(state) {
-      return state.FETCHED_HTML;
-    },
-    GALLERY_NAV(state) {
-      return state.GALLERY_NAV.galleryNav;
-    },
-    GALLERY(state) {
-      return state.GALLERY;
-    },
-    HOME(state) {
-      return state.HOME.home;
-    },
-    INVESTMENT(state) {
-      return state.INVESTMENT.investment;
-    },
   },
   actions: {
-    async fetchAboutData({ commit }) {
+    async fetchAbout({ commit }) {
       try {
-        commit('SET_ABOUT', await fetchData('/data/about.json'));
+        commit('SET_ABOUT', await fetchData('/pages/about.htm'));
       } catch (e) {
         console.error('error with SET_ABOUT on axios.get', e);
       }
     },
-    async fetchGalleryNavData({ commit }) {
+    async fetchGalleryNav({ commit }) {
       try {
-        commit('SET_GALLERY_NAV', await fetchData('/data/gallery-nav.json'));
+        commit('SET_GALLERY_NAV', await fetchData('/pages/gallery-nav.htm'));
       } catch (e) {
         console.error('error with SET_GALLERY_NAV on axios.get', e);
       }
     },
-    async fetchHomeData({ commit }) {
+    async fetchHome({ commit }) {
       try {
-        commit('SET_HOME', await fetchData('/data/home.json'));
+        commit('SET_HOME', await fetchData('/pages/home.htm'));
       } catch (e) {
         console.error('error with SET_HOME on axios.get', e);
       }
     },
-    async fetchInvestmentData({ commit }) {
+    async fetchInvestment({ commit }) {
       try {
-        commit('SET_INVESTMENT', await fetchData('/data/investment.json'));
+        commit('SET_INVESTMENT', await fetchData('/pages/investment.htm'));
       } catch (e) {
         console.error('error with SET_INVESTMENT on axios.get', e);
       }
     },
-    async fetchHTML({ commit }, url) {
+    async fetchGallery({ commit }, url) {
       try {
-        commit('SET_FETCHED_HTML', await fetchData(url));
+        commit('SET_GALLERY_HTML', await fetchData(`/galleries/${url}`));
       } catch (e) {
-        console.error('error with SET_FETCHED_HTML on axios.get', e);
+        console.error('error with SET_GALLERY_HTML on axios.get', e);
       }
     },
   },
